@@ -1,0 +1,9 @@
+# TODO update requirements
+evalutils==0.2.4
+nibabel
+SimpleITK
+numpy
+pandas
+imageio
+batchgenerators
+git+https://github.com/tueimage/elastix-py
