@@ -286,7 +286,7 @@ for x in range(len(test_data_path)):
 
 
     #-------------------Prediction RCNN------------------------------
-    model = torch.load('model_RCNN.pt')
+    model = torch.load('model_RCNN.pt', map_location=device)
     model.to(device)
     print("Model Mask RCNN loaded\n")
     print("Predicting with Mask RCNN......\n")
@@ -462,7 +462,7 @@ for x in range(len(test_data_path)):
             
             return out
 
-    rx50 = torch.load('model_UNet32.pt')
+    rx50 = torch.load('model_UNet32.pt', map_location=device)
     rx50.to(device)
     print("Model rx50 loaded\n")
     
