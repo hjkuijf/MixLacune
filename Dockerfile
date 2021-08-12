@@ -14,10 +14,11 @@ COPY elastix-5.0.1-linux /home/elastix-5.0.1-linux/
 COPY example_data /home/example_data/
 COPY model_RCNN.pt model_UNet32.pt process.py process-lacunes.py run.sh /home/
 
-RUN chmod u+x /home/elastix-5.0.1-linux/bin/elastix \
+RUN mkdir /home/input_data/ /home/input_data/lacunes/ /home/output_data/ /home/output_data/lacunes/ \ 
+ && chmod -R 777 /home \
+ && chmod u+x /home/elastix-5.0.1-linux/bin/elastix \
  && chmod u+x /home/elastix-5.0.1-linux/bin/transformix \
- && chmod u+x /home/run.sh \
- && mkdir /home/input_data/ /home/input_data/lacunes/ /home/output_data/ /home/output_data/lacunes/ 
+ && chmod u+x /home/run.sh 
 
 
 ENTRYPOINT python -m process $0 $@
